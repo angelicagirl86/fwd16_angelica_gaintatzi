@@ -1,0 +1,207 @@
+
+
+
+/* body */
+body {
+    max-width: 1500px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center; /* everything on center of website */
+    background-image: url(images/clouds-background-light.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* main container */
+#maincontainer {
+    width: 960px;
+    margin: auto; /* top & bottom 0px margin and same margin left & right */
+    text-align: left; /* not inherit center text align from above/body */
+}
+
+/* header */
+#plane img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline;
+    z-index: 10000; /* high stack order so it's always in front of elements with lower stack order. */
+    width: 312px;
+    height: 102px;
+    }
+
+#website_header {
+    font-family: sans-serif;
+    height: 150px;
+    padding: 1px;
+    background-image: url(/Users/angelicagaintatzi/Documents/fwd16 skoluppgifter/GitHub/fwd16_angelica_gaintatzi/htmlcss/uppgift2/images/viggen.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left top;
+}
+
+#menu_nav ul {
+    list-style-type: none; /* remove bullets */
+    margin-top: 50px;
+    padding: 0;
+    text-align: center;  /* menu in center */
+}
+
+#menu_nav ul li { 
+display: inline; /* menu in a row */
+}
+
+#menu_nav ul li a { 
+text-decoration: none; /* remove underline */
+padding: .3em .8em;
+color: #fff;
+font-weight: bold;
+background-color: #ff9966;
+border-right: 2px solid #c07c00;
+border-bottom: 2px solid #c07c00;
+border-radius: 8px; /* rounded corners */
+margin: 1px;
+}
+
+#menu_nav a:first-child {
+background-color:#eb8654;
+}
+
+#menu_nav a:nth-child(2){
+background-color: #4998d1;
+}
+
+#menu_nav ul li a:hover {
+color: #fff;
+background-color: #eb8654;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+li.dropdown {
+    display: inline-block;
+}
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #ff9966;
+}
+li a, .dropbtn {
+    display: inline-block;
+    color: #fff;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 80px;
+
+
+    margin-left: 648px;
+}
+.dropdown-content a { 
+text-decoration: none; /* remove underline */
+padding: .3em .8em;
+color: #fff;
+font-weight: bold;
+background-color: #ff9966;
+border-right: 2px solid #c07c00;
+border-bottom: 2px solid #c07c00;
+border-radius: 8px; /* rounded corners */
+display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+
+
+#menu_nav ul li:nth-child(2n+1) {  
+  color: blue;
+}
+
+
+
+
+#contentcontainer {
+width: 936px;
+margin: 0px auto;
+}
+
+
+/* aside */
+#sidebar {
+float: left;
+width: 148px; /* 150px - 2px border (left&right) */
+height: 1131px;
+border: 1px solid #000;
+}
+
+#content {
+    float: right;
+    width: 759px; /* 781px - 2px border (left&right) - 20px padding (left&right) */
+    margin-left: 5px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #000;
+}
+
+#blue {
+    color: blue;
+}
+
+#red_strong {
+    color: red;
+    font-weight: bold;
+}
+
+#redline {
+    color: red;
+    text-decoration: line-through;
+}
+
+h2, h3 {
+    color: #ff9966; 
+}
+
+h2:first-letter, h3::first-letter {
+    font-size: 150%;
+}
+
+
+
+#special_effects {
+    background-color:rgba(255, 0, 0, 0.7);
+    border: 2px 0px solid #ffd324;
+    border-radius: 10px 30px;
+    padding: 30px;
+    margin: 30px 70px;
+}
+
+#special_effects p{
+    font-size: 30px;
+    color: #b4be7a;
+    text-shadow: -3px -2px 5px #000;
+    text-align: center;
+}
+
+
+#yellow_box {
+    background-color: #fff6bf;
+    border-top: 2px solid #ffd324;
+    border-bottom: 2px solid #ffd324;
+    padding: 30px 40px;
+    margin: 10px 70px;
+}
+
+/* footer */
+#website_footer {
+    height: 50px;
+    clear: both;
+    padding: 5px;
+    border: 1px solid #000;
+    text-align: center;
+    margin-bottom: 5px;
+}
