@@ -1,0 +1,54 @@
+/* landing page style css */
+
+
+
+/* ignore the browsers default */
+html {
+ box-sizing: border-box;
+}
+
+*, *:before, *:after {
+ box-sizing: inherit;
+}
+
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:100vh;
+  background-image: url("../images/o-SCOTLAND-facebook1.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+}
+
+.landing {
+    display: flex;
+    align-items: center;
+  justify-content: center;
+  width:50%;
+  height:50vh;
+  flex-flow:column wrap;
+}
+
+.landing a {
+    color: white;
+    text-decoration: none;   /* remove underline */
+    font-weight: bold;
+    text-align: center;
+}
+
+h4 {
+    font-weight: normal;
+    text-align: left;
+}
+
+.landing .fa-smile-o {
+    font-size: 3em;
+    color: lightblue;
+
+    padding: 0;
+    margin: 0;
+}
+

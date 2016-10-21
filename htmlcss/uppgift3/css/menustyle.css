@@ -1,0 +1,72 @@
+/* menu style css */
+
+/* ignore the browsers default */
+html {
+ box-sizing: border-box;
+}
+
+*, *:before, *:after {
+ box-sizing: inherit;
+}
+
+.nav_wrapper {
+  max-width: 100px;
+  margin: 0 auto;
+  display: inline;
+}
+
+.flex_nav ul {
+    list-style: none;  /* remove bullets */
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* om någon inte får plats går den till nästa rad */
+
+}
+    
+.flex_nav li {  /*flex items */
+    flex-basis: 100%;
+}
+
+.flex_nav ul a {
+display: inline-block;
+width: 100%;
+text-align: center;
+text-decoration: none;   /* remove underline */
+background: #000; /* fallback background color */
+background: rgba(0, 0, 0, 0.2); /* opacity only to this element */
+transition: all 0.5s; /* fade effect */
+color: white;
+padding: 20px 20px;
+}
+
+.flex_nav ul a:hover {
+  background: #000; /* fallback background color */
+  background: rgba(0, 0, 0, 0.5); 
+}
+
+.flex_nav .social {
+  flex: 1 1 25%; /* (flex grow 1, flex-shrink 1, flex-basis 25%) */
+  display: flex;
+}
+
+
+
+
+@media (min-width: 600px){   /* breakpoint for tablet */
+	.flex_nav li {
+  flex: 1 1 50%;
+}
+
+}
+
+
+@media (min-width: 1000px){   /* breakpoint for desktop */
+	.flex_nav li {
+    flex: 3; /* om något inte får plats går det till nästa rad */
+  }
+
+  .flex_nav .social {
+    flex: 1;
+  }
+}

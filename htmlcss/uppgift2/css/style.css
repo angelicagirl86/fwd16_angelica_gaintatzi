@@ -80,7 +80,6 @@ background-color: #eb8654;
     display: block;
 }
 li.dropdown {
-    display: inline-block;
 }
 li a:hover, .dropdown:hover .dropbtn {
     background-color: #ff9966;
