@@ -25,7 +25,7 @@ html {
 }
     
 .flex_nav li {  /*flex items */
-    flex-basis: 100%;
+    flex-basis: 100%; /* ta hela utrymmet */
 }
 
 .flex_nav ul a {
@@ -46,16 +46,16 @@ padding: 20px 20px;
 }
 
 .flex_nav .social {
-  flex: 1 1 25%; /* (flex grow 1, flex-shrink 1, flex-basis 25%) */
+  flex: 1 1 25%; /* (flex grow 1 = lika stora, flex-shrink 1 = lika små, flex-basis 25% för vi har 4 iconer) */
   display: flex;
 }
 
 
 
 
-@media (min-width: 600px){   /* breakpoint for tablet */
+@media (min-width: 600px){   /* breakpoint for tablet */  /* min för man början med mobilen och går över till störe enheter */
 	.flex_nav li {
-  flex: 1 1 50%;
+  flex: 1 1 50%; /* 50% för vi har 2 columner */
 }
 
 }

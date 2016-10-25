@@ -53,13 +53,14 @@ justify-content: space-around;
 
 
 .author {
-    text-align: right;
+    text-align: right; /* default är text-align: left */
 }
 
 .pic_text_button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;   /*  ?????????????? */
+    /* flex-grow: 1; för i.e.11 */
 }
 
 .pic_text_button img {
