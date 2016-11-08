@@ -1,0 +1,37 @@
+
+// Modern border-box applied everywhere
+html {
+  box-sizing: border-box;
+}
+
+// inherit box-sizing
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html,header, footer, body, nav, div, img, a,ul, li, h1, h2{
+	margin: 0;
+	padding: 0;
+	//text-decoration: none;
+	//list-style-type: none;
+}
+
+
+
+body { 
+  height: 100%; 
+  font-size: 15pt;
+  color: #383838;
+  background: #ffffcc;
+  @include page-bg ('../images/lemonsbackground.jpeg');
+	/* sticky footer */
+	display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+
+
+
+
