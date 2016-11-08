@@ -1,0 +1,31 @@
+/* _landing_page.scss */
+
+
+    
+.landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 50vh;
+    flex-flow: column wrap;
+    }
+    
+.landing a {
+    color: white;
+    text-decoration: none; /* removes underline */
+    font-weight: bold;
+    text-align: center;
+    }
+    
+h4 {
+    font-weight: normal;
+    text-align: left;
+    }
+    
+.landing .fa-smile-o {
+    font-size: 3em;
+    color: lightblue;
+    padding: 0;
+    margin: 0;
+    }
