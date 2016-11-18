@@ -1,0 +1,46 @@
+///Mixin using breakpoint map 
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+ 
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+///Mixin for page background
+/// @param {url} $imagepath - set the url of the page-bg
+@mixin page-bg($imagepath,$bgrepeat:no-repeat,$bgattachment:fixed,$bgsize:cover) {
+  color: map-get($color, bright);
+  background: map-get($color-map-grey, 2000);
+  background-image: url($imagepath);
+  background-repeat: $bgrepeat;
+  background-attachment:$bgattachment;
+  background-size:$bgsize;
+  }
+
+
+/// mixin to change size on nth:child
+  @mixin width($n,$width) {
+    &:nth-child(#{$n}) {
+    width: $width;
+  }
+}
+
+/// mixin to style flexcard (radius & background color) + use of operator
+@mixin flexcard_styling ($radius, $background-color) {
+    border-radius: $radius;
+    border-bottom-right-radius: $radius * 2;
+    border-bottom-left-radius: $radius * 2;
+    background-color: $background-color;
+}
+
+
+

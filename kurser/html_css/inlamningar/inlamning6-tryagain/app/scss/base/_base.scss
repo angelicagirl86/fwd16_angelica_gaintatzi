@@ -1,0 +1,36 @@
+
+// Modern border-box applied everywhere
+html {
+  box-sizing: border-box;
+}
+
+// inherit box-sizing
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, header, footer, body, nav, div, img, a, ul, li, h1 {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style-type: none;
+}
+
+
+
+body {
+  font-size: 1em;
+  font-family: sans-serif;
+  color: #383838;
+  background: map-get($color, fallback-background);
+  @include page-bg ('../images/lemonsbackground.jpeg');
+	/* sticky footer */
+  height: 100%;
+	display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+
+

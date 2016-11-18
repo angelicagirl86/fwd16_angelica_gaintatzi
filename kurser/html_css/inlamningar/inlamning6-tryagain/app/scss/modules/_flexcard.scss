@@ -1,0 +1,96 @@
+
+
+.flexcards_container {
+  /// call placeholder to set display flex and center content
+  @extend %flex-centered;
+  //display: flex;
+  //justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: 1500px;
+  margin: 2em;
+  padding-top: 1em;
+  
+  @include respond-to('medium') {
+      flex-wrap: wrap;
+      flex-direction: row;
+  }
+  
+  .flexcard {
+    /// call placeholder to set display flex and center content
+  @extend %flex-centered;
+    //align-items: center;
+    margin: 10px;
+    padding: 0;
+    //justify-content: space-between;
+
+    /// call mixin to style flexcard (radius & background color) + use of operator
+    @include flexcard_styling (10px, lime);
+
+ /// call mixin that changes the background color on mobile
+    @include respond-to('small') {
+      @include flexcard_styling (10px, #baff01);
+  }
+
+/// call mixin that changes the background color on tablet
+    @include respond-to('medium') {
+      @include flexcard_styling (10px, yellow);
+  }
+
+
+    /// operator to calculate the width of the content area (300px+200)
+    .content {
+      /// call placeholder to set display flex and center content
+  @extend %flex-centered;
+      flex-direction: column;
+      width: 300px + 200;
+      align-items: center;
+
+      .flexcard_header {
+        /// call placeholder to set display flex and center content
+@extend %flex-centered;
+        width: 80%;
+        padding: 20px 20px 15px 20px;
+        border-bottom: 2px solid seagreen;
+
+        // place like & comment icons
+        .like_comment_icons {
+          margin-left: auto;
+        }
+
+        a {
+        color: seagreen;
+        }
+      }
+
+      img {
+        margin: 30px;
+      }
+    }
+    
+    .button {
+      background: grey;
+      padding: 15px;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
+      text-align: center;
+      border: none;
+      color: white;
+      font-size: 1.2em;
+      max-width: 50%;
+
+      &:hover {
+          background: seagreen;
+      }
+    }
+
+    /// call mixin that sets every 5th card to 100% width
+    @include respond-to('small') {
+        @include width(5n,100%);
+  }
+  }
+
+  
+}

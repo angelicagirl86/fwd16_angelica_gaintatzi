@@ -1,0 +1,213 @@
+// menu dropdown - on mobile
+#nav {
+  width: 100%;
+  font-size: 1.00em;
+  background: map-get($color-defs, megamenu-mobile-dropdown-background);
+}
+
+// Menu button - on mobile
+#nav label.menu {
+  position: relative;
+  display: block;
+  min-height: 2em;
+  padding: .45em;
+  font-size: 1.1em;
+  margin: 0;
+  cursor: pointer;
+  background: map-get($color-defs, menu-hamburger-background);
+  line-height: 2em;
+  color: map-get($color, megamenu-color);
+}
+  
+// hamburger icon  - on mobile
+#nav label.menu:after {
+    position: absolute;
+    right: 1em;
+    top: .2em;
+    content: "\2261";
+    font-size: 1.8em;
+    color: map-get($color, megamenu-color);
+ }
+
+// hide checkbox icon - on mobile
+#nav input.trigger {
+  position: absolute;
+  display: none;
+}
+
+// show menu dropdown - on mobile
+#nav input.trigger:checked ~ul, #nav input.trigger:checked ~ul li ul {
+  display: block !important;
+}
+
+/* hide menu dropdown when unclick checkbox and position ul so it'll be parent to the rest of the menu */
+#nav > ul {
+  display: none;
+  position: relative;
+  width: 100%;
+  padding: 0.625em;
+}
+
+// menu links
+#nav ul li a {
+    display: block;
+    color: map-get($color, megamenu-color);
+  
+    @include respond-to('small') {
+    flex: 3;
+  }
+  }
+
+  // menu links
+#nav ul li a:hover {
+    display: block;
+    color: map-get($color, megamenu-color);
+    transition: 0.5s;
+    color: salmon;
+  
+    @include respond-to('small') {
+    flex: 3;
+  }
+  }
+
+    // subcategory titles
+  #nav ul.megamenu h4 {
+    margin-bottom: 15px;
+    color: yellow;
+    text-transform: uppercase;
+  }
+
+// subcategories links - on mobile
+#nav ul.megamenu ul li a {
+  color: map-get($color, megamenu-color);
+  padding-left: 2.500em;
+  transition: 0.5s;
+}
+
+
+// subcategories links hover - on mobile
+#nav ul.megamenu ul li a:hover {
+  color: salmon;
+}
+
+
+
+
+//----------------------------------------------------------------//
+
+// Breakpoint for larger display than mobile/small
+@include respond-to('small') {
+  
+  // hide menu & hamburger button - on tablet/desktop
+  #nav label.menu {
+    display: none;
+  }
+  
+  // menubar - on tablet/desktop
+  #nav {
+       background: map-get($color-map-grey, 2000);
+       font-size: 1em;
+       box-shadow: 0 0 0.625em rgba(0,0,0,1);
+    }
+  
+  // set menubar with flexbox - on tablet/desktop
+  #nav > ul {
+    display: flex;
+    flex-flow: row-wrap;
+    justify-content: space-between;
+    max-width: 75.000em;
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  // menu links
+  #nav a {
+    display: block;
+  }
+  
+  // transition on the menubar items - on tablet/desktop
+  #nav ul li {
+    transition: 0.7s;
+  }
+  
+  // menubar items hover - on tablet/desktop
+  #nav > ul > li:hover {
+      background: map-get($color-map-grey, 3000);
+  }
+  
+  
+  #nav > ul > li > a {
+    padding: 15px 25px;
+  }
+  
+  // menu dropdown (megamenu) set flexbox
+   #nav ul.megamenu {
+    position: absolute;
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1200px;
+    top: -9999px;
+    left: 0;
+    padding: 40px 40px 0 40px;
+    background: map-get($color-map-grey, 3000);
+    text-align: left;
+    border-top: 5px solid map-get($color-map-grey, 3000);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  // set megamenu to hover on top position
+  #nav ul li:hover ul.megamenu {
+    top: 100%;
+}
+
+  // subcategories of megamenu - 4 columns (child-menus in the megamenu)
+  #nav ul.megamenu ul {
+    flex: 1 1 25%;
+    margin-bottom: 40px;
+    box-shadow: none;
+  }
+  
+  // subcategory titles
+  #nav ul.megamenu h4 {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  
+  
+  #nav ul.megamenu ul li {
+    display: block;
+  }
+  
+  
+  /* sätt position för dropdown menyn till att vara förälder med position */
+  #nav ul > li.submenu > a:after {
+    position: relative;
+    float: right;
+    content: '';
+    //code for arrow
+    margin-left: 10px;
+    margin-top: 8px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #fff;
+    border-bottom: 5px solid transperent;
+  }
+  
+  // change direction of arrowon a:hover
+   #nav ul > li.submenu:hover > a:after {
+    margin-top: 2px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid #fff;
+  }
+  
+   // subcategory links
+   #nav ul.megamenu ul li a {
+    margin-top: 0.625em;
+    transition: 0.5s;
+    padding-left:  0;
+  }
+  
+   
+  
+}
