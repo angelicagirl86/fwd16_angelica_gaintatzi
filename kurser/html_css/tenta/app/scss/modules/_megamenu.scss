@@ -107,7 +107,7 @@
   #nav {
        background: map-get($color, main);
        font-size: 1em;
-       box-shadow: 0 0 0.625em rgba(0,0,0,1);
+       box-shadow-bottom: 0 0 0.625em rgba(0,0,0,1);
     }
   
   // set menubar with flexbox - on tablet/desktop

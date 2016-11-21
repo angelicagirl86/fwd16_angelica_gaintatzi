@@ -1,0 +1,20 @@
+.headerall {
+    display: flex;
+    text-align: center;
+    //justify-content: space-between;
+    color: black;
+    background: #916c55;
+    align-items: baseline;
+    
+    h1 {
+        font-size: 1em;
+    }
+    
+
+.fb, .twitter, .insta {
+//justify-content: space-around;
+text-align: center;
+flex: 1;
+cursor: pointer;
+}
+}
