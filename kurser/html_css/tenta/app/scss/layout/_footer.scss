@@ -1,0 +1,28 @@
+
+.foot {
+    display: flex;
+    flex-flow: row wrap;
+    //justify-content: center;
+    //margin-top: auto; 
+    //margin-bottom: 0;       
+    align-items: flex-start;
+    background: map-get($color, main);
+    padding: 1em;
+    width: 100%;
+    box-shadow: 0 0 0.6em rgba(0,0,0,1);
+    
+    .col {
+        text-align: center;
+        flex: 1;
+    }
+
+    ul {
+        font-size: 1em;
+        
+        a {
+        color: white;
+        cursor: pointer;
+        }
+    }
+
+}

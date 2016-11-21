@@ -1,0 +1,93 @@
+.all_flexcards_container {
+/// call placeholder to set display flex and center content
+  @extend %flex-centered;
+  //display: flex;
+  //justify-content: center;
+  flex-direction: column;
+  max-width: 1500px;
+  margin: 2em;
+
+.serie1 {
+	/// call placeholder to set display flex and center content
+  @extend %flex-centered;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 20px auto;
+  padding: 0;
+  //height: 100vh;
+
+.trophy {
+	/// call placeholder to set display flex and center content
+  @extend %flex-centered;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 100px;
+  border: 1px solid red;
+  height: 40vh;
+  width: 30vh;
+  position: relative;
+
+  .trophy-text {
+		  color: blue;
+		  font-weight: bold;
+		  position: absolute;
+		  left:30%;
+		  top: 10%; 
+		  }
+}
+
+@include respond-to('small') {
+      flex-wrap: wrap;
+      flex-direction: row;
+  }
+
+}
+
+.serie2 {
+	/// call placeholder to set display flex and center content
+  @extend %flex-centered;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 20px auto;
+  padding: 0;
+  max-width: 100%;
+
+  .flexcard-wanted {
+	  /// call placeholder to set display flex and center content
+	  @extend %flex-centered;
+	  flex-direction: column;
+
+	  .wanted-title {
+		  color: red;
+		  font-weight: bold;
+		  font-size: 1.2em;
+	  }
+
+	  .wanted-text {
+		  background: map-get($color, flexcard-bg);
+		  padding: 0 5px 0 10px;
+		  margin-top: 5px;
+	  }
+
+	  .killhim {
+		  color: red;
+		  font-weight: bold;
+	  }
+
+  }
+
+
+
+
+
+}
+
+@include respond-to('small') {
+      flex-wrap: wrap;
+      flex-direction: row;
+  }
+
+}
+
