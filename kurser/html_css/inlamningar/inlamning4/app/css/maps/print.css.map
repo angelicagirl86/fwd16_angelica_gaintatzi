@@ -1,0 +1,1 @@
+{"version":3,"file":"../print.css","sources":["print.scss"],"sourcesContent":[".print {\n  width: percentage(3/6);\n}"],"mappings":"AAAA,AAAA,MAAM,AAAC,CACL,KAAK,CAAE,GAAU,CAClB","names":[]}

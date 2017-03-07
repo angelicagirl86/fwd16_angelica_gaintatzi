@@ -1,8 +1,13 @@
-/// @author Sohail Hasware
+/// @author Angelica Gaintatzi
 /// Font icons
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
 @import url(https://fonts.googleapis.com/css?family=Merriweather+Sans);
 @import url(http://fonts.googleapis.com/css?family=Poiret+One);
+/* fonts for social media */
+@import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+
 /// Text setup
 $text: (
   body: unquote("'Merriweather', serif"),
@@ -12,22 +17,48 @@ $text: (
 ) !default;
 
 
-/// COLORS map
+
+/// Variables in a color map
 $color: (
-  main: #24d4a0,
-  accent1: #ffd166,
+  fallback-background: #ffffcc,
+  link-bg: yellow,
+  link-text: #6a6a6a,
+  megamenu-color: white,
+  accent1: #095e45,
   accent2: #ec4970,
   accent3: #1d8aaf,
   accent4: #0a3a4a,
   dark: #282828,
-  gray: #e1e1e1,
-  darkgrey: #666,
   bright: #f5f5f5
 ) !default;
 
 
+
+/// Variables in a grey tones map
+$color-map-grey: (
+  1000: hsl(0, 0%, 10%),
+  2000: hsl(0, 0%, 20%),
+  3000: hsl(0, 0%, 30%),
+  4000: hsl(0, 0%, 40%),
+  5000: hsl(0, 0%, 50%),
+  6000: hsl(0, 0%, 60%),
+  7000: hsl(0, 0%, 70%),
+  8000: hsl(0, 0%, 80%),
+  9000: hsl(0, 0%, 90%)
+) !default;
+
+
+
 /// Color def map for page-layout using color map
 $color-defs: (
+
+  site-background: map-get($color, fallback-background),
+  megamenu-mobile-dropdown-background: map-get($color-map-grey, 3000),
+  menu-hamburger-background: map-get($color-map-grey, 2000),
+  menu-bar-background: map-get($color-map-grey, 2000),
+  megamenu-textcolor: map-get($color, megamenu-color),
+  navigation_link: map-get($color, link-bg),
+  navigation_text: map-get($color, link-text),
   header: map-get($color, bright),
   header-text: map-get($color, dark),
   footer: map-get($color, dark),
@@ -40,13 +71,15 @@ $color-defs: (
 ) !default;
 
 
-/// Breakpoint map
 
+/// Breakpoint map
 $breakpoints: (
-  'small':  ( min-width:  40.000em ),
-  'medium': ( min-width:  48.000em ),
+  'small':  ( min-width:  38.000em ),
+  'medium': ( min-width:  55.000em ),
   'large':  ( min-width: 62.000em ),
   'wide':  ( min-width: 75.000em )
 ) !default;
+
+
 
 
