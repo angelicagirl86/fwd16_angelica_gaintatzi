@@ -26,7 +26,7 @@ echo "Welcome ".$_SESSION['name']."<br>";
  * Vi vill ta emot resultatet från föregående sida och med $_GET ta emot id för
  * den raden vi ska redigera
 */
-$id = $_GET['id'];
+$movieId = $_GET['movieId'];
 
 /*
  * vi använder värdet på id från föregående sida som vi fick från get och 
@@ -36,7 +36,7 @@ $id = $_GET['id'];
  */
 $sql = "SELECT * FROM movie WHERE movieId=:movieId"; 
 $query = $pdo->prepare($sql); 
-$query->execute(array(':movieId' => $id)); 
+$query->execute(array(':movieId' => $movieId)); 
 /*
  * Resultatet av nedanstående kod kommer vi fylla ut i en html forumlär längre
  * ner på sidan. 
@@ -46,7 +46,7 @@ while($row = $query->fetch())
 $movieName = $row['movieName']; 
 $movieDuration = $row['movieDuration'];
 $movieCopies = $row['movieCopies'];
-//$songLyricsby = $row['songLyricsby'];
+$categoryId = $row['categoryId'];
 }
 
 /*
@@ -73,17 +73,17 @@ $categorySqlQuery->execute();
 */
 if(isset($_POST['update'])) 
 { 
-$id = $_POST['id']; 
+$movieId = $_POST['movieId']; 
 
 $movieName=$_POST['movieName']; 
 $movieDuration=$_POST['movieDuration'];
 $movieCopies=$_POST['movieCopies'];
-//$songLyricsby=$_POST['songLyricsby']; 
+$categoryId=$_POST['categoryId']; 
 
 
 // checking empty fields
 
-if(empty($movieName) || empty($movieDuration) || empty($movieCopies)) { 
+if(empty($movieName) || empty($movieDuration) || empty($movieCopies) || empty($categoryId)) { 
 
 if(empty($movieName)) { 
 echo "<font color='red'>Movie Name field is empty.</font><br/>"; 
@@ -96,10 +96,10 @@ echo "<font color='red'>Movie Duration field is empty.</font><br/>";
 if(empty($movieCopies)) { 
 echo "<font color='red'>Movie Copies field is empty.</font><br/>"; 
 } 
-/*
-if(empty($songLyricsby)) { 
-echo "<font color='red'>Song Lyrics By field is empty.</font><br/>"; 
-} */
+
+if(empty($categoryId)) { 
+echo "<font color='red'>Category field is empty.</font><br/>"; 
+}
 
 } else { 
 /*
@@ -109,7 +109,7 @@ echo "<font color='red'>Song Lyrics By field is empty.</font><br/>";
  *  databasen. Detta läggs till i variablen $sql
 */
 
-$sql = "UPDATE movie SET movieName=:movieName, movieDuration=:movieDuration, movieCopies=:movieCopies WHERE movieId=:movieId";
+$sql = "UPDATE movie SET movieName=:movieName, movieDuration=:movieDuration, movieCopies=:movieCopies, categoryId=:categoryId WHERE movieId=:movieId";
 
 /*
  * vi använder pdo objektets prepare metod som tar $sql som argument och sparar
@@ -117,11 +117,11 @@ $sql = "UPDATE movie SET movieName=:movieName, movieDuration=:movieDuration, mov
 */
 $query = $pdo->prepare($sql); 
 /*Sedan binder vi det som finns i platshållaren till variabeln*/
-$query->bindparam(':movieId', $id); 
+$query->bindparam(':movieId', $movieId);
 $query->bindparam(':movieName', $movieName); 
 $query->bindparam(':movieDuration', $movieDuration);
 $query->bindparam(':movieCopies', $movieCopies);
-//$query->bindparam(':songLyricsby', $songLyricsby);
+$query->bindparam(':categoryId', $categoryId);
 //vi använder det som nu finns i $query för att köra sql frågan 
 $query->execute(); 
 
@@ -155,9 +155,8 @@ and open the template in the editor.
 <!-- Resultatet av vår sql fråga från rad34 lägger vi en input, man kan alltid
 blanda html och php som ni ser, genom att flika in php taggar som start och slut-->
 <td><input type="text" name="movieName" value="<?php echo $movieName;?>" ></td>
-<td><input type="text" name="movieDuration" value="<?php echo $movieDuration;?>" ></td>
-<td><input type="text" name="movieCopies" value="<?php echo $movieCopies;?>" ></td>
-<!-- <td><input type="text" name="songLyricsby" value="<?php echo $songLyricsby;?>" ></td> -->
+<td><input type="number" name="movieDuration" value="<?php echo $movieDuration;?>" ></td>
+<td><input type="number" name="movieCopies" value="<?php echo $movieCopies;?>" ></td>
 </tr> 
 <tr> 
 <td>Category</td> 
@@ -190,7 +189,7 @@ echo "<option value=\"{$category['categoryId']}\">{$category['categoryName']}</o
 
 <tr>
 <!-- Vi visar inte id för den låten vi vill redigera -->    
-<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?></td> 
+<td><input type="hidden" name="movieId" value=<?php echo $_GET['movieId'];?></td> 
 <td><input type="submit" name="update" value="Update"></td> 
 </tr> 
 </table> 

@@ -71,7 +71,7 @@ $categorySqlQuery->execute();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <a href="category.php">Category</a>
+        <a href="category.php">Categories</a>
     <br/><br/>
 
     <form action="categoryAdd.php" method="post" name="form1">

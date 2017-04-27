@@ -8,8 +8,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 
-
-
 /*
  * Vi sätter vår db koppling i en try catch för att fånga upp om nåt går fel,
  * $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -26,7 +24,8 @@ ini_set('log_errors', 1);
 */
 try {
     
-    $pdo = new PDO('mysql:host=83.168.227.23; dbname=db1164707_AngelG', 'u1164707_AngelG', 'j3.nM a6o}');
+        
+    $pdo = new PDO('mysql:host=localhost; dbname=crud_movies', 'root', 'root');
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
@@ -38,3 +37,7 @@ try {
     die();
     
 }
+
+?>
+
+

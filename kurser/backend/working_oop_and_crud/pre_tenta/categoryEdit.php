@@ -25,7 +25,7 @@ echo "Welcome ".$_SESSION['name']."<br>";
  * Vi vill ta emot resultatet från föregående sida och med $_GET ta emot id för
  * den raden vi ska redigera
 */
-$id = $_GET['id'];
+$categoryId = $_GET['categoryId'];
 
 /*
  * vi använder värdet på id från föregående sida som vi fick från get och 
@@ -35,7 +35,7 @@ $id = $_GET['id'];
  */
 $sql = "SELECT * FROM category WHERE categoryId=:categoryId"; 
 $query = $pdo->prepare($sql); 
-$query->execute(array(':categoryId' => $id)); 
+$query->execute(array(':categoryId' => $categoryId)); 
 /*
  * Resultatet av nedanstående kod kommer vi fylla ut i en html forumlär längre
  * ner på sidan. 
@@ -70,7 +70,7 @@ $categorySqlQuery->execute();
 */
 if(isset($_POST['update'])) 
 { 
-$id = $_POST['id']; 
+$categoryId = $_POST['categoryId']; 
 
 $categoryName=$_POST['categoryName'];
 
@@ -93,7 +93,7 @@ $sql = "UPDATE category SET categoryName=:categoryName WHERE categoryId=:categor
 */
 $query = $pdo->prepare($sql); 
 /*Sedan binder vi det som finns i platshållaren till variabeln*/
-$query->bindparam(':categoryId', $id); 
+$query->bindparam(':categoryId', $categoryId); 
 $query->bindparam(':categoryName', $categoryName);
 //$query->bindparam(':songLyricsby', $songLyricsby);
 //vi använder det som nu finns i $query för att köra sql frågan 
@@ -135,7 +135,7 @@ blanda html och php som ni ser, genom att flika in php taggar som start och slut
 <td>
 
 <!-- Vi visar inte id för den låten vi vill redigera -->    
-<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?></td> 
+<td><input type="hidden" name="categoryId" value=<?php echo $_GET['categoryId'];?></td> 
 <td><input type="submit" name="update" value="Update"></td> 
 </tr> 
 </table> 

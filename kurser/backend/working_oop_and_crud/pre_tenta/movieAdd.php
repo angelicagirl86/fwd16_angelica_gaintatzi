@@ -22,15 +22,14 @@ if(empty($_SESSION['email']))
 echo "Welcome ".$_SESSION['name']."<br>";
 
 if(isset($_POST['Submit'])) {    
-    $categoryId = $_POST['categoryId'];
     $movieName = $_POST['movieName'];
     $movieDuration = $_POST['movieDuration'];
     $movieCopies = $_POST['movieCopies'];
-    //$songLyricsby = $_POST['songLyricsby'];
+    $categoryId = $_POST['categoryId'];
     
         
     // checking empty fields
-    if(empty($movieName) || empty($movieDuration) || empty($movieCopies)) { 
+    if(empty($movieName) || empty($movieDuration) || empty($movieCopies)  || empty($categoryId)) { 
 
                 
         if(empty($movieName)) {
@@ -45,9 +44,9 @@ if(isset($_POST['Submit'])) {
             echo "<font color='red'>Movie Copies field is empty.</font><br/>"; 
         }
         
-        /*if(empty($songLyricsby)) { 
-            echo "<font color='red'>Song Lyrics By field is empty.</font><br/>";    
-        } */
+        if(empty($categoryId)) { 
+            echo "<font color='red'>Category field is empty.</font><br/>";    
+        }
         
         //link to the previous page
         echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
@@ -55,18 +54,15 @@ if(isset($_POST['Submit'])) {
         // if all the fields are filled (not empty) 
             
         //insert data to database        
-        $sql = "INSERT INTO movie(categoryId, movieName, movieDuration, movieCopies) VALUES(:categoryId, :movieName, :movieDuration, :movieCopies)";
+        $sql = "INSERT INTO movie(movieName, movieDuration, movieCopies, categoryId) VALUES(:movieName, :movieDuration, :movieCopies, :categoryId)";
         $query = $pdo->prepare($sql);
-        
-        $query->bindparam(':categoryId', $categoryId);
+       
         $query->bindparam(':movieName', $movieName);
         $query->bindparam(':movieDuration', $movieDuration);
         $query->bindparam(':movieCopies', $movieCopies);
-        //$query->bindparam(':songLyricsby', $songLyricsby);
+        $query->bindparam(':categoryId', $categoryId);
         $query->execute();
         
-        // Alternative to above bindparam and execute
-        // $query->execute(array(':joketext' => $joketext, ':authorId' => $authorId));
         
         //display success message
         echo "<font color='green'>Data added successfully.";
@@ -75,7 +71,7 @@ if(isset($_POST['Submit'])) {
 }
 
 /*
- * För att inte användaren ska behöva skriva siffror för en authorid, så vill vi
+ * För att inte användaren ska behöva skriva siffror för en categoryId, så vill vi
  * skapa en dropdown så att användare kan välja från namnlista från databasen
  * som ladda i en dropdown.
  * Nedanståend sql fråga är basen för den dropdown
@@ -105,9 +101,9 @@ $categorySqlQuery->execute();
                 <td>Name</td>
                 <td><input type="text" name="movieName" /></td>
                 <td>Duration</td>
-                <td><input type="text" name="movieDuration" /></td>
+                <td><input type="number" name="movieDuration" /></td>
                 <td>Copies</td>
-                <td><input type="text" name="movieCopies" /></td>
+                <td><input type="number" name="movieCopies" /></td>
                 <!-- <td>Lyrics By</td>
                 <td><input type="text" name="songLyricsby" /></td> -->
             </tr>
@@ -122,6 +118,7 @@ användare inte lägger till författare som inte existerar-->
     
 <?php
 
+$categoryId="";
 while($category = $categorySqlQuery->fetch()) { 
 if ($category['categoryId'] == $categoryId) { 
 //The author is currently associated to the joke, select it by default 

@@ -9,10 +9,11 @@ echo 'Current PHP version: ' . phpversion();
  * anses för osäkert. 
  */
 include_once("config.php");
+//include_once("config_local.php");
 /*
  * Vi använder sessions för att spåra våra använder på websidan
 */
-session_start();
+session_start(); 
 
 /*
  * Vi kontrollerar om nedan värden är fyllda i formuläret, om signup knappen
@@ -38,7 +39,7 @@ $insert->execute();
 }elseif(isset($_POST['signin'])){
  $email = $_POST['email'];
  /*
-  * Vid login så passerar vi den krypterade lösenordet tillbaks till databasen
+  * Vid login så passerar vi den krypterade lösenordet tillbaks till databasen.
  */
  $pass = md5($_POST['pass']);
  
